@@ -2,11 +2,11 @@
 
 // @name         霖溺BYPASS阿尔宙斯
 
-// @namespace    https://greasyfork.org/en/users/1252811-idontgiveaf
+// @namespace    https://raw.githubusercontent.com/ShenJiaoBen/ShenJiaoBen/main/%E9%98%BF%E5%B0%94%E5%AE%99%E6%96%AF%E4%B8%80%E7%A7%92%E5%87%BA%E7%9A%84%E7%BB%95%E8%BF%87.js
 
-// @version      LINNI1.7.3
+// @version      普通的跳转
 
-// @description  The only and offical bypass for Arceus X (by idgaf). None other will update daily. Abuses Arceus's API. ~5 seconds to do.
+// @description  114514
 
 // @author       idontgiveaf
 
@@ -36,9 +36,9 @@
 
 // @icon         https://tr.rbxcdn.com/892e0347b9ab64b2b3a17f57210ce60a/420/420/Image/Png
 
-// @downloadURL https://update.greasyfork.org/scripts/489587/Arceus%20X%20Official%20Bypass.user.js
+// @downloadURL https://raw.githubusercontent.com/ShenJiaoBen/ShenJiaoBen/main/%E9%98%BF%E5%B0%94%E5%AE%99%E6%96%AF%E4%B8%80%E7%A7%92%E5%87%BA%E7%9A%84%E7%BB%95%E8%BF%87.js
 
-// @updateURL https://update.greasyfork.org/scripts/489587/Arceus%20X%20Official%20Bypass.meta.js
+// @updateURL https://raw.githubusercontent.com/ShenJiaoBen/ShenJiaoBen/main/%E9%98%BF%E5%B0%94%E5%AE%99%E6%96%AF%E4%B8%80%E7%A7%92%E5%87%BA%E7%9A%84%E7%BB%95%E8%BF%87.js
 
 // ==/UserScript==
 
