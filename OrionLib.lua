@@ -635,8 +635,8 @@ function OrionLib:MakeWindow(WindowConfig)
 		MainWindow.Visible = false
 		UIHidden = true
 		OrionLib:MakeNotification({
-			Name = "UI作者:397510573",
-			Content = "点击左Shift重新打开界面",
+			Name = "By：小凌.AEX",
+			Content = "拜拜了!不知你我还能否相见",
 			Time = 5
 		})
 		WindowConfig.CloseCallback()
