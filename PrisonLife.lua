@@ -1,3 +1,5 @@
+if "By King" == KingScript and "傻小子" == Roblox and "King" == KingTeam then
+
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local UserInputService = game:GetService("UserInputService")
 local VirtualUser = game:GetService("VirtualUser")
@@ -213,3 +215,10 @@ LocalPlayer.Idled:Connect(function()
         VirtualUser:MoveMouse(Vector2.new())
     end
 end)
+
+wait(1)
+else
+setclipboard("KingQQ新主群https://qm.qq.com/q/SU0hmhIvwk")
+------分割----
+game.Players.LocalPlayer:Kick("King Team Alert⚠:Not all links and text are copied.Execution Error❌")
+end
