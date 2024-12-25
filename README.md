@@ -22,4 +22,4 @@
                    ⠉⠛⠿⣶⣤⣤⣀⣀⡀        ⢀⣀⣀⣀⣀⣤⡤⠞⠁     
                        ⠈⠉⠙⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠋⠉
 • This file has been protected using Luraph
-• 霖溺QQ新主群https://qm.qq.com/q/SU0hmhIvwk
+• 霖溺QQ新主群：http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=viOjjgj19-TUiZlamhpxb6uvWwVNGoB7&authKey=ACDi9sCtIis%2F4P%2BtirP046uWaJ54%2F149eBnUvaAsMu%2BWZwSFoEQrzZC9UDGFwmp%2F&noverify=0&group_code=744830231
