@@ -1,21 +1,20 @@
-
+--开源上传
 if game.PlaceId == 155615604 then--监狱人生
-
 KingScript = "By King" Roblox= "新飞月二飞春"
 KingTeam= "KingQQ新主群https://qm.qq.com/q/SU0hmhIvwk"
-loadstring(game:HttpGet("https://raw.githubusercontent.com/ShenJiaoBen/ShenJiaoBen/refs/heads/main/VIP.lua"))()
+ loadstring(game:HttpGet("https://raw.githubusercontent.com/ShenJiaoBen/ShenJiaoBen/main/VIP.lua"))()
 
 elseif game.PlaceId == 7239319209 then--俄亥俄州
 
 KingScript = "By King" Roblox= "草拟吗"
 KingTeam= "King无敌" 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/ShenJiaoBen/ShenJiaoBen/refs/heads/main/new_ohio.lua"))()
-
-else
-
+    
+else--通用
 KingScript = "By King" Roblox= "新飞月二飞春"
 KingTeam= "KingQQ新主群https://qm.qq.com/q/SU0hmhIvwk"
-loadstring(game:HttpGet("https://raw.githubusercontent.com/ShenJiaoBen/ShenJiaoBen/refs/heads/main/VIP.lua"))()
+ loadstring(game:HttpGet("https://raw.githubusercontent.com/ShenJiaoBen/ShenJiaoBen/main/VIP.lua"))()
 
+end
 
 end
