@@ -4,7 +4,7 @@ KingScript = "By King" Roblox= "新飞月二飞春"
 KingTeam= "KingQQ新主群https://qm.qq.com/q/SU0hmhIvwk"
 loadstring(game:HttpGet("https://raw.githubusercontent.com/ShenJiaoBen/ShenJiaoBen/main/King-------------Script.txt"))()
 
-elseif game.PlaceId == 7239319209 then
+elseif game.PlaceId == 7239319209 then--ohio
 KingScript = "By King" Roblox= "草拟吗"
 KingTeam= "King无敌" 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/ShenJiaoBen/ShenJiaoBen/refs/heads/main/new_ohio.lua"))()
