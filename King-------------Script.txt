@@ -1,22 +1,18 @@
 --开源上传--缝合小子赶紧缝合
-local serverId = game.JobId
-
-if serverId == "155615604" then
-    -- 监狱人生
+if game.PlaceId == 155615604 then--监狱人生
 KingScript = "By King" Roblox= "新飞月二飞春"
 KingTeam= "KingQQ新主群https://qm.qq.com/q/SU0hmhIvwk"
-loadstring(game:HttpGet("https://raw.githubusercontent.com/ShenJiaoBen/ShenJiaoBen/refs/heads/main/VIP.lua"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/ShenJiaoBen/ShenJiaoBen/main/King-------------Script.txt"))()
 
-elseif serverId == "7239319209" then
-    --ohio
+elseif game.PlaceId == 7239319209 then
 KingScript = "By King" Roblox= "草拟吗"
 KingTeam= "King无敌" 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/ShenJiaoBen/ShenJiaoBen/refs/heads/main/new_ohio.lua"))()
 
 else
-
 KingScript = "By King" Roblox= "新飞月二飞春"
 KingTeam= "KingQQ新主群https://qm.qq.com/q/SU0hmhIvwk"
-loadstring(game:HttpGet("https://raw.githubusercontent.com/ShenJiaoBen/ShenJiaoBen/refs/heads/main/VIP.lua"))()
-
+loadstring(game:HttpGet("https://raw.githubusercontent.com/ShenJiaoBen/ShenJiaoBen/main/King-------------Script.txt"))()
+game.Players.LocalPlayer:Kick("Nerve")
 end
+setclipboard("服务器ID"..game.PlaceId)
