@@ -122,7 +122,7 @@ function Library:visible()
 end
 function Library.__init()
 	local container = Instance.new("ScreenGui")
-	container.Name = "Argon Hub X"
+	container.Name = "霖溺"
     container.Parent = CoreGui
     Library.core = container
 	local Shadow = Instance.new("ImageLabel")
@@ -136,7 +136,7 @@ function Library.__init()
 	Shadow.Position = UDim2.new(0.508668244, 0, 0.5, 0)
 	Shadow.Size = UDim2.new(0, 776, 0, 509)
 	Shadow.ZIndex = 0
-	Shadow.Image = "rbxassetid://17290899982"
+	Shadow.Image = "rbxassetid://99599917888886"
 	Shadow.ImageColor3 = Color3.fromRGB(0, 0, 0)
 	local Container = Instance.new("Frame")
 	Container.Name = "Container"
