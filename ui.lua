@@ -136,7 +136,7 @@ function Library.__init()
 	Shadow.Position = UDim2.new(0.508668244, 0, 0.5, 0)
 	Shadow.Size = UDim2.new(0, 776, 0, 509)
 	Shadow.ZIndex = 0
-	Shadow.Image = "rbxassetid://99599917888886"
+	Shadow.Image = "rbxassetid://17290899982"
 	Shadow.ImageColor3 = Color3.fromRGB(0, 0, 0)
 	local Container = Instance.new("Frame")
 	Container.Name = "Container"
@@ -161,7 +161,7 @@ function Library.__init()
 	Top.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	Top.BorderSizePixel = 0
 	Top.Size = UDim2.new(0, 699, 0, 39)
-	Top.Image = "rbxassetid://17290652150"
+	Top.Image = "rbxassetid://99599917888886"
 
 	local Logo = Instance.new("ImageLabel")
     	Logo.Name = "Logo"
@@ -173,7 +173,7 @@ function Library.__init()
     	Logo.BorderSizePixel = 0
     	Logo.Position = UDim2.new(0.950000048, 0, 0.5, 0)
     	Logo.Size = UDim2.new(0, 20, 0, 20)
-    	Logo.Image = "rbxassetid://110130056211155"
+    	Logo.Image = "rbxassetid://99599917888886"
 	Logo.ImageTransparency = 1
 	
 	local TextLabel = Instance.new("TextLabel")
