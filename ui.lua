@@ -695,7 +695,7 @@ end)
 		Logo.Position = UDim2.new(0.130999997, 0, 0.5, 0)
 		Logo.Size = UDim2.new(0, 17, 0, 17)
 		Logo.ZIndex = 3
-		Logo.Image = "rbxassetid://17290697757"
+		Logo.Image = "rbxassetid://99599917888886"
 		Logo.ImageTransparency = 0.3001
 
 		local Glow = Instance.new("ImageLabel")
@@ -708,7 +708,7 @@ end)
 		Glow.BorderSizePixel = 0
 		Glow.Position = UDim2.new(0.5, 0, 0.5, 0)
 		Glow.Size = UDim2.new(0, 190, 0, 53)
-		Glow.Image = "rbxassetid://99599917888886"
+		Glow.Image = "rbxassetid://17290723539"
 		Glow.ImageTransparency = 1.000
 
 		local Fill = Instance.new("Frame")
