@@ -1558,7 +1558,7 @@ end)
 				Module.slider_loop({
 					slider = slider,
 					flag = self.flag,
-					callback = self.callback,
+			 		callback = self.callback,
 
 					maximum_value = self.maximum_value,
 					minimum_value = self.minimum_value,
