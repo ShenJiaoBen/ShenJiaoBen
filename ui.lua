@@ -14,8 +14,8 @@ local Library = {
     drag_position = nil;
     start_position = nil;
 }
-if not isfolder("Argon Hub X") then
-    makefolder("Argon Hub X")
+if not isfolder("Lini Hub") then
+    makefolder("Lini Hub")
 end
 function Library:disconnect()
 	for _, value in Library.connections do
@@ -28,7 +28,7 @@ function Library:disconnect()
 end
 function Library:clear()
 	for _, object in CoreGui:GetChildren() do
-		if object.Name ~= "Argon Hub X" then
+		if object.Name ~= "Lini Hub" then
 			continue
 		end
 		object:Destroy()
@@ -43,18 +43,18 @@ function Library:save_flags()
     if not Library.exist() then return end
     local success, result = pcall(function()
         local flags = HttpService:JSONEncode(Library.Flags)
-        writefile(`Argon Hub X/{game.GameId}.lua`, flags)
+        writefile(`Lini Hub/{game.GameId}.lua`, flags)
     end)
 end
 
 function Library:load_flags()
     local success, result = pcall(function()
-        if not isfile(`Argon Hub X/{game.GameId}.lua`) then
+        if not isfile(`Lini Hub/{game.GameId}.lua`) then
             Library.save_flags()
             return
         end
 
-        local flags = readfile(`Argon Hub X/{game.GameId}.lua`)
+        local flags = readfile(`Lini Hub/{game.GameId}.lua`)
         if not flags then
             Library.save_flags()
             return
@@ -122,7 +122,7 @@ function Library:visible()
 end
 function Library.__init()
 	local container = Instance.new("ScreenGui")
-	container.Name = "霖溺"
+	container.Name = "Lini Hub"
     container.Parent = CoreGui
     Library.core = container
 	local Shadow = Instance.new("ImageLabel")
