@@ -73,7 +73,7 @@ function Library:open()
 	self.Shadow.Visible = true
 	self.Mobile.Modal = true
 	TweenService:Create(self.Container, TweenInfo.new(0.6, Enum.EasingStyle.Circular, Enum.EasingDirection.InOut), {
-		Size = UDim2.new(0, 300, 0, 426)
+		Size = UDim2.new(0, 699, 0, 426)
 	}):Play()
 	TweenService:Create(self.Shadow, TweenInfo.new(0.6, Enum.EasingStyle.Circular, Enum.EasingDirection.InOut), {
 		Size = UDim2.new(0, 776, 0, 509)
@@ -274,7 +274,7 @@ function Library.__init()
         end)
     end
 
-  AnimateGif(Cat, 60, 40, 2, 3, 5, "rbxassetid://83992264588253", 10)
+  AnimateGif(Cat, 60, 40, 2, 3, 5, "rbxassetid://74080484918102", 10)
 
   local startTime = os.time()
 
@@ -458,7 +458,7 @@ function Library.__init()
     shadowMobile.Position = UDim2.new(0.5, 0, 0.5, 0)
     shadowMobile.Size = UDim2.new(0, 65, 0, 58)
     shadowMobile.ZIndex = 0
-    shadowMobile.Image = "rbxassetid://99599917888886"
+    shadowMobile.Image = "rbxassetid://17183270335"
     shadowMobile.ImageTransparency = 0.200
     local Icon = Instance.new("ImageLabel")
     Icon.Name = "Icon"
@@ -470,7 +470,7 @@ function Library.__init()
     Icon.BorderSizePixel = 0
     Icon.Position = UDim2.new(0.5, 0, 0.5, 0)
     Icon.Size = UDim2.new(0, 30, 0, 30)
-    Icon.Image = "rbxassetid://99599917888886" --// [rbxassetid://secret]
+    Icon.Image = "rbxassetid://134992015790041" --// [rbxassetid://secret]
 
     if deviceType == "PC" then
       mobile_button.Visible = false
