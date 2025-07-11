@@ -469,7 +469,7 @@ function Library.__init()
     Icon.BorderColor3 = Color3.fromRGB(0, 0, 0)
     Icon.BorderSizePixel = 0
     Icon.Position = UDim2.new(0.5, 0, 0.5, 0)
-    Icon.Size = UDim2.new(0, 50, 0, 50)
+    Icon.Size = UDim2.new(0, 50, 0, 40)
     Icon.Image = "rbxassetid://99599917888886" --// [rbxassetid://secret]
 
     if deviceType == "PC" then
