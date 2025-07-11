@@ -122,7 +122,7 @@ function Library:visible()
 end
 function Library.__init()
 	local container = Instance.new("ScreenGui")
-	container.Name = "Lini Hub"
+	container.Name = "霖溺"
     container.Parent = CoreGui
     Library.core = container
 	local Shadow = Instance.new("ImageLabel")
@@ -458,7 +458,7 @@ function Library.__init()
     shadowMobile.Position = UDim2.new(0.5, 0, 0.5, 0)
     shadowMobile.Size = UDim2.new(0, 65, 0, 58)
     shadowMobile.ZIndex = 0
-    shadowMobile.Image = "rbxassetid://17183270335"
+    shadowMobile.Image = "rbxassetid://99599917888886"
     shadowMobile.ImageTransparency = 0.200
     local Icon = Instance.new("ImageLabel")
     Icon.Name = "Icon"
@@ -695,7 +695,7 @@ end)
 		Logo.Position = UDim2.new(0.130999997, 0, 0.5, 0)
 		Logo.Size = UDim2.new(0, 17, 0, 17)
 		Logo.ZIndex = 3
-		Logo.Image = "rbxassetid://17290697757"
+		Logo.Image = "rbxassetid://99599917888886"
 		Logo.ImageTransparency = 0.3001
 
 		local Glow = Instance.new("ImageLabel")
