@@ -14,8 +14,8 @@ local Library = {
     drag_position = nil;
     start_position = nil;
 }
-if not isfolder("Lini Hub") then
-    makefolder("Lini Hub")
+if not isfolder("Argon Hub X") then
+    makefolder("Argon Hub X")
 end
 function Library:disconnect()
 	for _, value in Library.connections do
@@ -28,7 +28,7 @@ function Library:disconnect()
 end
 function Library:clear()
 	for _, object in CoreGui:GetChildren() do
-		if object.Name ~= "Lini Hub" then
+		if object.Name ~= "Argon Hub X" then
 			continue
 		end
 		object:Destroy()
@@ -43,18 +43,18 @@ function Library:save_flags()
     if not Library.exist() then return end
     local success, result = pcall(function()
         local flags = HttpService:JSONEncode(Library.Flags)
-        writefile(`Lini Hub/{game.GameId}.lua`, flags)
+        writefile(`Argon Hub X/{game.GameId}.lua`, flags)
     end)
 end
 
 function Library:load_flags()
     local success, result = pcall(function()
-        if not isfile(`Lini Hub/{game.GameId}.lua`) then
+        if not isfile(`Argon Hub X/{game.GameId}.lua`) then
             Library.save_flags()
             return
         end
 
-        local flags = readfile(`Lini Hub/{game.GameId}.lua`)
+        local flags = readfile(`Argon Hub X/{game.GameId}.lua`)
         if not flags then
             Library.save_flags()
             return
@@ -122,7 +122,7 @@ function Library:visible()
 end
 function Library.__init()
 	local container = Instance.new("ScreenGui")
-	container.Name = "Lini Hub"
+	container.Name = "Argon Hub X"
     container.Parent = CoreGui
     Library.core = container
 	local Shadow = Instance.new("ImageLabel")
@@ -136,7 +136,7 @@ function Library.__init()
 	Shadow.Position = UDim2.new(0.508668244, 0, 0.5, 0)
 	Shadow.Size = UDim2.new(0, 776, 0, 509)
 	Shadow.ZIndex = 0
-	Shadow.Image = "rbxassetid://99599917888886"
+	Shadow.Image = "rbxassetid://17290899982"
 	Shadow.ImageColor3 = Color3.fromRGB(0, 0, 0)
 	local Container = Instance.new("Frame")
 	Container.Name = "Container"
@@ -161,7 +161,7 @@ function Library.__init()
 	Top.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	Top.BorderSizePixel = 0
 	Top.Size = UDim2.new(0, 699, 0, 39)
-	Top.Image = "rbxassetid://99599917888886"
+	Top.Image = "rbxassetid://17290652150"
 
 	local Logo = Instance.new("ImageLabel")
     	Logo.Name = "Logo"
@@ -173,7 +173,7 @@ function Library.__init()
     	Logo.BorderSizePixel = 0
     	Logo.Position = UDim2.new(0.950000048, 0, 0.5, 0)
     	Logo.Size = UDim2.new(0, 20, 0, 20)
-    	Logo.Image = "rbxassetid://99599917888886"
+    	Logo.Image = "rbxassetid://110130056211155"
 	Logo.ImageTransparency = 1
 	
 	local TextLabel = Instance.new("TextLabel")
@@ -221,7 +221,7 @@ function Library.__init()
     	Cat.Position = UDim2.new(0.930000007, 0, 0.200000003, 0)
     	Cat.Size = UDim2.new(0, 25, 0, 25)
     	Cat.ZIndex = 3
-    	Cat.Image = "rbxassetid://83992264588253"
+    	Cat.Image = "rbxassetid://74080484918102"
     	Cat.ImageRectSize = Vector2.new(20, 20)
 
     	local function AnimateGif(ImageLabel, Width, Height, Rows, Columns, NumberOfFrames, ImageID, FPS)
@@ -695,7 +695,7 @@ end)
 		Logo.Position = UDim2.new(0.130999997, 0, 0.5, 0)
 		Logo.Size = UDim2.new(0, 17, 0, 17)
 		Logo.ZIndex = 3
-		Logo.Image = "rbxassetid://99599917888886"
+		Logo.Image = "rbxassetid://17290697757"
 		Logo.ImageTransparency = 0.3001
 
 		local Glow = Instance.new("ImageLabel")
