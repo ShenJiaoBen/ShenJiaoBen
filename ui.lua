@@ -458,7 +458,7 @@ function Library.__init()
     shadowMobile.Position = UDim2.new(0.5, 0, 0.5, 0)
     shadowMobile.Size = UDim2.new(0, 65, 0, 58)
     shadowMobile.ZIndex = 0
-    shadowMobile.Image = "rbxassetid://99599917888886"
+    shadowMobile.Image = "rbxassetid://17183270335"
     shadowMobile.ImageTransparency = 0.200
     local Icon = Instance.new("ImageLabel")
     Icon.Name = "Icon"
@@ -470,7 +470,7 @@ function Library.__init()
     Icon.BorderSizePixel = 0
     Icon.Position = UDim2.new(0.5, 0, 0.5, 0)
     Icon.Size = UDim2.new(0, 30, 0, 30)
-    Icon.Image = "rbxassetid://134992015790041" --// [rbxassetid://secret]
+    Icon.Image = "rbxassetid://99599917888886" --// [rbxassetid://secret]
 
     if deviceType == "PC" then
       mobile_button.Visible = false
