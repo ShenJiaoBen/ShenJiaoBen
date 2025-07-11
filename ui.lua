@@ -173,7 +173,7 @@ function Library.__init()
     	Logo.BorderSizePixel = 0
     	Logo.Position = UDim2.new(0.950000048, 0, 0.5, 0)
     	Logo.Size = UDim2.new(0, 20, 0, 20)
-    	Logo.Image = "rbxassetid://110130056211155"
+    	Logo.Image = "rbxassetid://99599917888886"
 	Logo.ImageTransparency = 1
 	
 	local TextLabel = Instance.new("TextLabel")
@@ -1558,7 +1558,7 @@ end)
 				Module.slider_loop({
 					slider = slider,
 					flag = self.flag,
-			 		callback = self.callback,
+					callback = self.callback,
 
 					maximum_value = self.maximum_value,
 					minimum_value = self.minimum_value,
