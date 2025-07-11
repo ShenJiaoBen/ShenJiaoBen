@@ -136,7 +136,7 @@ function Library.__init()
 	Shadow.Position = UDim2.new(0.508668244, 0, 0.5, 0)
 	Shadow.Size = UDim2.new(0, 776, 0, 509)
 	Shadow.ZIndex = 0
-	Shadow.Image = "rbxassetid://99599917888886"
+	Shadow.Image = "rbxassetid://17290899982"
 	Shadow.ImageColor3 = Color3.fromRGB(0, 0, 0)
 	local Container = Instance.new("Frame")
 	Container.Name = "Container"
@@ -173,7 +173,7 @@ function Library.__init()
     	Logo.BorderSizePixel = 0
     	Logo.Position = UDim2.new(0.950000048, 0, 0.5, 0)
     	Logo.Size = UDim2.new(0, 20, 0, 20)
-    	Logo.Image = "rbxassetid://99599917888886"
+    	Logo.Image = "rbxassetid://110130056211155"
 	Logo.ImageTransparency = 1
 	
 	local TextLabel = Instance.new("TextLabel")
@@ -470,7 +470,7 @@ function Library.__init()
     Icon.BorderSizePixel = 0
     Icon.Position = UDim2.new(0.5, 0, 0.5, 0)
     Icon.Size = UDim2.new(0, 30, 0, 30)
-    Icon.Image = "rbxassetid://secret" --// [rbxassetid://secret]
+    Icon.Image = "rbxassetid://99599917888886" --// [rbxassetid://secret]
 
     if deviceType == "PC" then
       mobile_button.Visible = false
