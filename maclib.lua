@@ -42,6 +42,8 @@ local assets = {
 	transform = "rbxassetid://90336395745819",
 	dropdown = "rbxassetid://18865373378",
 	sliderbar = "rbxassetid://18772615246",
+	    minimizeIcon = "rbxassetid://99599917888886",
+    maximizeIcon = "rbxassetid://83992264588253",
 	sliderhead = "rbxassetid://18772834246",
 }
 
@@ -765,21 +767,77 @@ minimize.Parent = controls
 	uIPadding2.PaddingLeft = UDim.new(0, 20)
 	uIPadding2.PaddingRight = UDim.new(0, 20)
 	uIPadding2.Parent = elements
+-- 添加最小化按钮
+local minimizeIcon = Instance.new("ImageButton")
+minimizeIcon.Name = "MinimizeIcon"
+minimizeIcon.Image = "rbxassetid://10709790998" -- 使用缩小图标
+minimizeIcon.ImageTransparency = 0.7
+minimizeIcon.AnchorPoint = Vector2.new(1, 0.5)
+minimizeIcon.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+minimizeIcon.BackgroundTransparency = 1
+minimizeIcon.BorderColor3 = Color3.fromRGB(0, 0, 0)
+minimizeIcon.BorderSizePixel = 0
+minimizeIcon.Position = UDim2.fromScale(1, 0.5)
+minimizeIcon.Size = UDim2.fromOffset(15, 15)
+minimizeIcon.Parent = elements
 
-	local moveIcon = Instance.new("ImageButton")
-	moveIcon.Name = "MoveIcon"
-	moveIcon.Image = assets.transform
-	moveIcon.ImageTransparency = 0.7
-	moveIcon.AnchorPoint = Vector2.new(1, 0.5)
-	moveIcon.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	moveIcon.BackgroundTransparency = 1
-	moveIcon.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	moveIcon.BorderSizePixel = 0
-	moveIcon.Position = UDim2.fromScale(1, 0.5)
-	moveIcon.Size = UDim2.fromOffset(15, 15)
-	moveIcon.Parent = elements
-	moveIcon.Visible = not Settings.DragStyle or Settings.DragStyle == 1
+-- 移动原来的移动图标位置
+local moveIcon = Instance.new("ImageButton")
+moveIcon.Name = "MoveIcon"
+moveIcon.Image = assets.transform
+moveIcon.ImageTransparency = 0.7
+moveIcon.AnchorPoint = Vector2.new(1, 0.5)
+moveIcon.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+moveIcon.BackgroundTransparency = 1
+moveIcon.BorderColor3 = Color3.fromRGB(0, 0, 0)
+moveIcon.BorderSizePixel = 0
+moveIcon.Position = UDim2.new(1, -20, 0.5, 0) -- 向左移动
+moveIcon.Size = UDim2.fromOffset(15, 15)
+moveIcon.Parent = elements
+moveIcon.Visible = not Settings.DragStyle or Settings.DragStyle == 1
+-- 最小化按钮交互
+local function ChangeMinimizeIconState(State)
+    if State == "Default" then
+        Tween(minimizeIcon, TweenInfo.new(0.2, Enum.EasingStyle.Sine), {
+            ImageTransparency = 0.7
+        }):Play()
+    elseif State == "Hover" then
+        Tween(minimizeIcon, TweenInfo.new(0.2, Enum.EasingStyle.Sine), {
+            ImageTransparency = 0.4
+        }):Play()
+    elseif State == "Minimized" then
+        minimizeIcon.Image = "rbxassetid://10709791132" -- 使用放大图标
+    elseif State == "Restored" then
+        minimizeIcon.Image = "rbxassetid://10709790998" -- 使用缩小图标
+    end
+end
 
+minimizeIcon.MouseEnter:Connect(function()
+    ChangeMinimizeIconState("Hover")
+end)
+
+minimizeIcon.MouseLeave:Connect(function()
+    ChangeMinimizeIconState("Default")
+end)
+
+minimizeIcon.MouseButton1Click:Connect(function()
+    minimized = not minimized
+    if minimized then
+        Tween(base, TweenInfo.new(0.2, Enum.EasingStyle.Quad), {
+            Size = minimizedSize
+        }):Play()
+        content.Visible = false
+        sidebar.Visible = false
+        ChangeMinimizeIconState("Minimized")
+    else
+        Tween(base, TweenInfo.new(0.2, Enum.EasingStyle.Quad), {
+            Size = originalSize
+        }):Play()
+        content.Visible = true
+        sidebar.Visible = true
+        ChangeMinimizeIconState("Restored")
+    end
+end)
 	local interact = Instance.new("TextButton")
 	interact.Name = "Interact"
 	interact.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json")
@@ -865,18 +923,11 @@ minimize.Parent = controls
 			end
 		end)
 	elseif Settings.DragStyle == 2 then
+	
 base.InputBegan:Connect(function(input)
     if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-        if minimized then
-            -- 如果是最小化状态，点击任意位置恢复
-            minimized = false
-            Tween(base, TweenInfo.new(0.2, Enum.EasingStyle.Quad), {
-                Size = originalSize
-            }):Play()
-            content.Visible = true
-            sidebar.Visible = true
-        else
-            -- 正常拖动逻辑
+        -- 只有在非最小化状态才允许拖动
+        if not minimized then
             onDragStart(input)
         end
     end
