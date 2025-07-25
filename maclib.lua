@@ -42,8 +42,6 @@ local assets = {
 	transform = "rbxassetid://90336395745819",
 	dropdown = "rbxassetid://18865373378",
 	sliderbar = "rbxassetid://18772615246",
-	    minimizeIcon = "rbxassetid://99599917888886",
-    maximizeIcon = "rbxassetid://83992264588253",
 	sliderhead = "rbxassetid://18772834246",
 }
 
@@ -70,15 +68,13 @@ end
 
 --// Library Functions
 function MacLib:Window(Settings)
+	local WindowFunctions = {Settings = Settings}
+	if Settings.AcrylicBlur ~= nil then
+		acrylicBlur = Settings.AcrylicBlur
+	else
+		acrylicBlur = true
+	end
 
-local WindowFunctions = {Settings = Settings}
-local minimized = false
-local originalSize = Settings.Size or UDim2.fromOffset(868, 650)
-local minimizedSize = UDim2.fromOffset(50, 50) -- 正方形最小化尺寸
-local originalPosition = base.Position -- 保存原始位置
-
-
-WindowFunctions:UpdateMinimizedTitle(Settings.Title)
 	local macLib = GetGui()
 
 	local notifications = Instance.new("Frame")
@@ -227,68 +223,24 @@ WindowFunctions:UpdateMinimizedTitle(Settings.Title)
 
 	exit.Parent = controls
 
-local minimize = Instance.new("TextButton")
-minimize.Name = "Minimize"
-minimize.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json")
-minimize.Text = ""
-minimize.TextColor3 = Color3.fromRGB(0, 0, 0)
-minimize.TextSize = 14
-minimize.AutoButtonColor = false
-minimize.BackgroundColor3 = Color3.fromRGB(252, 190, 57)
-minimize.BorderColor3 = Color3.fromRGB(0, 0, 0)
-minimize.BorderSizePixel = 0
-minimize.LayoutOrder = 1
+	local minimize = Instance.new("TextButton")
+	minimize.Name = "Minimize"
+	minimize.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json")
+	minimize.Text = ""
+	minimize.TextColor3 = Color3.fromRGB(0, 0, 0)
+	minimize.TextSize = 14
+	minimize.AutoButtonColor = false
+	minimize.BackgroundColor3 = Color3.fromRGB(252, 190, 57)
+	minimize.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	minimize.BorderSizePixel = 0
+	minimize.LayoutOrder = 1
 
-local uICorner1 = Instance.new("UICorner")
-uICorner1.Name = "UICorner"
-uICorner1.CornerRadius = UDim.new(1, 0)
-uICorner1.Parent = minimize
-local miniIcon = Instance.new("ImageLabel")
-miniIcon.Name = "MiniIcon"
-miniIcon.Image = "rbxassetid://99599917888886" -- 使用您喜欢的图标
-miniIcon.AnchorPoint = Vector2.new(0.5, 0.5)
-miniIcon.BackgroundTransparency = 1
-miniIcon.Position = UDim2.fromScale(0.5, 0.5)
-miniIcon.Size = UDim2.fromOffset(30, 30)
-miniIcon.Visible = false
-miniIcon.Parent = base
+	local uICorner1 = Instance.new("UICorner")
+	uICorner1.Name = "UICorner"
+	uICorner1.CornerRadius = UDim.new(1, 0)
+	uICorner1.Parent = minimize
 
-minimize.MouseButton1Click:Connect(function()
-    minimized = not minimized
-    if minimized then
-        -- 计算中心位置（保持居中）
-        local centerPos = UDim2.new(0.5, -25, 0.5, -25)
-        Tween(base, TweenInfo.new(0.3, Enum.EasingStyle.Quad), {
-            Size = minimizedSize,
-            Position = centerPos
-        }):Play()
-        
-        -- 隐藏所有内容，只保留背景
-        content.Visible = false
-        sidebar.Visible = false
-        windowControls.Visible = false
-        base.BackgroundTransparency = 0.3 -- 半透明效果
-        
-        -- 修改窗口圆角为圆形
-        baseUICorner.CornerRadius = UDim.new(1, 0)
-    else
-        Tween(base, TweenInfo.new(0.3, Enum.EasingStyle.Quad), {
-            Size = originalSize,
-            Position = originalPosition
-        }):Play()
-        
-        -- 恢复显示
-        content.Visible = true
-        sidebar.Visible = true
-        windowControls.Visible = true
-        base.BackgroundTransparency = Settings.AcrylicBlur and 0.05 or 0
-        
-        -- 恢复窗口圆角
-        baseUICorner.CornerRadius = UDim.new(0, 10)
-    end
-end)
-
-minimize.Parent = controls
+	minimize.Parent = controls
 
 	local maximize = Instance.new("TextButton")
 	maximize.Name = "Maximize"
@@ -785,77 +737,21 @@ minimize.Parent = controls
 	uIPadding2.PaddingLeft = UDim.new(0, 20)
 	uIPadding2.PaddingRight = UDim.new(0, 20)
 	uIPadding2.Parent = elements
--- 添加最小化按钮
-local minimizeIcon = Instance.new("ImageButton")
-minimizeIcon.Name = "MinimizeIcon"
-minimizeIcon.Image = "rbxassetid://10709790998" -- 使用缩小图标
-minimizeIcon.ImageTransparency = 0.7
-minimizeIcon.AnchorPoint = Vector2.new(1, 0.5)
-minimizeIcon.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-minimizeIcon.BackgroundTransparency = 1
-minimizeIcon.BorderColor3 = Color3.fromRGB(0, 0, 0)
-minimizeIcon.BorderSizePixel = 0
-minimizeIcon.Position = UDim2.fromScale(1, 0.5)
-minimizeIcon.Size = UDim2.fromOffset(15, 15)
-minimizeIcon.Parent = elements
 
--- 移动原来的移动图标位置
-local moveIcon = Instance.new("ImageButton")
-moveIcon.Name = "MoveIcon"
-moveIcon.Image = assets.transform
-moveIcon.ImageTransparency = 0.7
-moveIcon.AnchorPoint = Vector2.new(1, 0.5)
-moveIcon.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-moveIcon.BackgroundTransparency = 1
-moveIcon.BorderColor3 = Color3.fromRGB(0, 0, 0)
-moveIcon.BorderSizePixel = 0
-moveIcon.Position = UDim2.new(1, -20, 0.5, 0) -- 向左移动
-moveIcon.Size = UDim2.fromOffset(15, 15)
-moveIcon.Parent = elements
-moveIcon.Visible = not Settings.DragStyle or Settings.DragStyle == 1
--- 最小化按钮交互
-local function ChangeMinimizeIconState(State)
-    if State == "Default" then
-        Tween(minimizeIcon, TweenInfo.new(0.2, Enum.EasingStyle.Sine), {
-            ImageTransparency = 0.7
-        }):Play()
-    elseif State == "Hover" then
-        Tween(minimizeIcon, TweenInfo.new(0.2, Enum.EasingStyle.Sine), {
-            ImageTransparency = 0.4
-        }):Play()
-    elseif State == "Minimized" then
-        minimizeIcon.Image = "rbxassetid://10709791132" -- 使用放大图标
-    elseif State == "Restored" then
-        minimizeIcon.Image = "rbxassetid://10709790998" -- 使用缩小图标
-    end
-end
+	local moveIcon = Instance.new("ImageButton")
+	moveIcon.Name = "MoveIcon"
+	moveIcon.Image = assets.transform
+	moveIcon.ImageTransparency = 0.7
+	moveIcon.AnchorPoint = Vector2.new(1, 0.5)
+	moveIcon.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	moveIcon.BackgroundTransparency = 1
+	moveIcon.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	moveIcon.BorderSizePixel = 0
+	moveIcon.Position = UDim2.fromScale(1, 0.5)
+	moveIcon.Size = UDim2.fromOffset(15, 15)
+	moveIcon.Parent = elements
+	moveIcon.Visible = not Settings.DragStyle or Settings.DragStyle == 1
 
-minimizeIcon.MouseEnter:Connect(function()
-    ChangeMinimizeIconState("Hover")
-end)
-
-minimizeIcon.MouseLeave:Connect(function()
-    ChangeMinimizeIconState("Default")
-end)
-
-minimizeIcon.MouseButton1Click:Connect(function()
-    minimized = not minimized
-    if minimized then
-        Tween(base, TweenInfo.new(0.2, Enum.EasingStyle.Quad), {
-            Size = minimizedSize
-        }):Play()
-        content.Visible = false
-        sidebar.Visible = false
-        ChangeMinimizeIconState("Minimized")
-    else
-        Tween(base, TweenInfo.new(0.2, Enum.EasingStyle.Quad), {
-            Size = originalSize
-        }):Play()
-        content.Visible = true
-        sidebar.Visible = true
-        ChangeMinimizeIconState("Restored")
-    end
-end)
 	local interact = Instance.new("TextButton")
 	interact.Name = "Interact"
 	interact.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json")
@@ -941,15 +837,11 @@ end)
 			end
 		end)
 	elseif Settings.DragStyle == 2 then
-	
-base.InputBegan:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-        -- 只有在非最小化状态才允许拖动
-        if not minimized then
-            onDragStart(input)
-        end
-    end
-end)
+		base.InputBegan:Connect(function(input)
+			if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+				onDragStart(input)
+			end
+		end)
 
 		base.InputChanged:Connect(onDragUpdate)
 
