@@ -70,21 +70,12 @@ end
 
 --// Library Functions
 function MacLib:Window(Settings)
-local WindowFunctions = {Settings = Settings}
-if Settings.AcrylicBlur ~= nil then
-    acrylicBlur = Settings.AcrylicBlur
-else
-    acrylicBlur = true
-end
 
+local WindowFunctions = {Settings = Settings}
 local minimized = false
 local originalSize = Settings.Size or UDim2.fromOffset(868, 650)
-local minimizedSize = UDim2.fromOffset(868, 31)
-function WindowFunctions:UpdateMinimizedTitle(text)
-    if minimized then
-        currentTab.Text = text or "Minimized"
-    end
-end
+local minimizedSize = UDim2.fromOffset(50, 50) -- 正方形最小化尺寸
+local originalPosition = base.Position -- 保存原始位置
 
 
 WindowFunctions:UpdateMinimizedTitle(Settings.Title)
@@ -252,21 +243,48 @@ local uICorner1 = Instance.new("UICorner")
 uICorner1.Name = "UICorner"
 uICorner1.CornerRadius = UDim.new(1, 0)
 uICorner1.Parent = minimize
+local miniIcon = Instance.new("ImageLabel")
+miniIcon.Name = "MiniIcon"
+miniIcon.Image = "rbxassetid://99599917888886" -- 使用您喜欢的图标
+miniIcon.AnchorPoint = Vector2.new(0.5, 0.5)
+miniIcon.BackgroundTransparency = 1
+miniIcon.Position = UDim2.fromScale(0.5, 0.5)
+miniIcon.Size = UDim2.fromOffset(30, 30)
+miniIcon.Visible = false
+miniIcon.Parent = base
 
 minimize.MouseButton1Click:Connect(function()
     minimized = not minimized
     if minimized then
-        Tween(base, TweenInfo.new(0.2, Enum.EasingStyle.Quad), {
-            Size = minimizedSize
+        -- 计算中心位置（保持居中）
+        local centerPos = UDim2.new(0.5, -25, 0.5, -25)
+        Tween(base, TweenInfo.new(0.3, Enum.EasingStyle.Quad), {
+            Size = minimizedSize,
+            Position = centerPos
         }):Play()
+        
+        -- 隐藏所有内容，只保留背景
         content.Visible = false
         sidebar.Visible = false
+        windowControls.Visible = false
+        base.BackgroundTransparency = 0.3 -- 半透明效果
+        
+        -- 修改窗口圆角为圆形
+        baseUICorner.CornerRadius = UDim.new(1, 0)
     else
-        Tween(base, TweenInfo.new(0.2, Enum.EasingStyle.Quad), {
-            Size = originalSize
+        Tween(base, TweenInfo.new(0.3, Enum.EasingStyle.Quad), {
+            Size = originalSize,
+            Position = originalPosition
         }):Play()
+        
+        -- 恢复显示
         content.Visible = true
         sidebar.Visible = true
+        windowControls.Visible = true
+        base.BackgroundTransparency = Settings.AcrylicBlur and 0.05 or 0
+        
+        -- 恢复窗口圆角
+        baseUICorner.CornerRadius = UDim.new(0, 10)
     end
 end)
 
